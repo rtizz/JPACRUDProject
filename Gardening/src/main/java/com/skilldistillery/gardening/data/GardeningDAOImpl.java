@@ -1,5 +1,6 @@
 package com.skilldistillery.gardening.data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,14 +14,13 @@ import com.skilldistillery.gardening.entities.Plant;
 @Service
 @Transactional
 public class GardeningDAOImpl implements GardeningDAO {
-
 	
 	@PersistenceContext
 	private EntityManager em;
 	
 	@Override
 	public Plant findById(int plantId) {
-		return em.find(Plant.class, 1);
+		return em.find(Plant.class, plantId);
 	}
 
 	@Override
@@ -32,21 +32,40 @@ public class GardeningDAOImpl implements GardeningDAO {
 	//NO BEGIN COMMIT
 	//NO EM.CLOSE
 	@Override
-	public Plant create(Plant plant) {
-		// TODO Auto-generated method stub
-		return null;
+	public Plant createPlant(Plant createPlant) {
+		em.persist(createPlant);
+		em.flush();
+		return createPlant;
 	}
 
 	@Override
-	public Plant update(Plant plant) {
+	public Plant updatePlant(int id, Plant plant) {
+		System.out.println(id);
 		// TODO Auto-generated method stub
-		return null;
+		Plant updatePlant = em.find(Plant.class, id);
+		updatePlant.setName(plant.getName());
+		updatePlant.setScientificName(plant.getScientificName());
+		updatePlant.setPests(plant.getPests());
+		updatePlant.setFromSeed(plant.getFromSeed());
+		updatePlant.setGermPeriod(plant.getGermPeriod());
+		updatePlant.setPlanted(plant.getPlanted());
+		updatePlant.setHarvested(plant.getHarvested());
+		updatePlant.setYield(plant.getYield());
+		updatePlant.setNotes(plant.getNotes());
+		updatePlant.setImageUrl(plant.getImageUrl());
+		return updatePlant;
 	}
 
 	@Override
-	public boolean deleteById(int plantId) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean removePlant(int plantId) {
+		Plant removePlant = em.find(Plant.class, plantId);
+		em.remove(removePlant);
+		Plant checkRemoval = em.find(Plant.class, plantId);
+		if (checkRemoval == null) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }
