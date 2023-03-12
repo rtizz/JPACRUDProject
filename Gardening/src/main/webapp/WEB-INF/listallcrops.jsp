@@ -22,7 +22,7 @@
 				<!-- DISPLAY IN NICE FORMAT (TABLE) -->
 				<table>
 					<thead >
-						<tr class="dark">
+						<tr id=custom>
 							<td>ID</td>
 							<td>Name</td>
 							<td>Image</td>
