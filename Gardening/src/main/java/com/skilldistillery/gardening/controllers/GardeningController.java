@@ -1,6 +1,7 @@
 package com.skilldistillery.gardening.controllers;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.gardening.data.GardeningDAO;
@@ -22,9 +22,21 @@ public class GardeningController {
 	
 	@RequestMapping(path={"/", "home.do"})
 	public String goHome(Model model) {
-		model.addAttribute("plants", gdao.findAll());
 		return "home";
 	}
+	
+	@RequestMapping(path="croplist.do")
+	public String displayAll(Model model) {
+	List<Plant> plantlist = gdao.findAll();
+	model.addAttribute("plantlist", plantlist);
+		return "listallcrops";
+	}
+	
+	@RequestMapping(path="addplant.do")
+	public String addplant(Model model) {
+		return "addnewplantform";
+	}
+	
 	
 	@RequestMapping(path="newplant.do", params= {"plantedAlt", "harvestedAlt"},method= RequestMethod.POST)
 	public String createPlant(Plant plant, Model model, @RequestParam("plantedAlt") String planted, @RequestParam("harvestedAlt") String harvested) {
@@ -59,15 +71,32 @@ public class GardeningController {
 	  }
 	@RequestMapping(path="remove.do", params="remove", method= RequestMethod.GET)
 	public String removePlant(Plant plant, Model model, @RequestParam("remove") int plantId) {
+		Plant preremoved = gdao.findById(plantId);
 		gdao.removePlant(plantId);
 		if(gdao.findById(plantId) != null) {
 		String error = "Plant not removed";
 		model.addAttribute("error", error);
 		return "removed";
 		} else {
-		model.addAttribute("plantremoved", plant);
+		model.addAttribute("plantremoved", preremoved);
 		return "removed";
 	}
 	}
+	@RequestMapping(path="search.do", params="search", method= RequestMethod.GET)
+	public String searchPlant(Model model, @RequestParam("search") String keyword) {
+//		String kwmod = "%" + keyword + "%";
+		model.addAttribute("keyword", gdao.findByKeywordSearch(keyword));
+		return "searchresults";
+	}
 
+	@RequestMapping(path="routetofind.do")
+	public String findbyid(Model model) {
+		return "findcropbyidform";
+	}
+
+	@RequestMapping(path="findbyid.do", params="plantid", method= RequestMethod.GET)
+	public String findbyid(Model model, @RequestParam("plantid") int plantid) {
+		model.addAttribute("plantid", gdao.findById(plantid));
+		return "findbyidresult";
+	}
 }

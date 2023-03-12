@@ -1,0 +1,31 @@
+@charset "UTF-8";
+body{
+background: rgb(117,196,121);
+background: radial-gradient(circle, rgba(117,196,121,1) 1%, rgba(9,121,17,1) 42%, rgba(92,137,142,1) 85%);
+}
+
+table, thead{
+	border: 1px solid;
+	width: 100%
+	
+}
+
+thead {
+  background: black;
+  color: white;
+  position: sticky;
+  top: 0;	
+}
+
+th, td{
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: teal;}
+
+.navbar {
+	background-color: black;
+	color: white;
+}

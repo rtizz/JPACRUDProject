@@ -3,9 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<jsp:include page="bootstrapheader.jsp" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../format.css">
 </head>
+<jsp:include page="nav.jsp" />
 <body>
 ${update}
 <form action="plantupdated.do" method="POST">
@@ -23,5 +26,6 @@ ${update}
   URL: <input type="text" name="imageUrl" value="${update.imageUrl}"/>
   <input type="submit" value="Update Plant" />
   </form>
+  <jsp:include page="bootstrapfooter.jsp" />
 </body>
 </html>

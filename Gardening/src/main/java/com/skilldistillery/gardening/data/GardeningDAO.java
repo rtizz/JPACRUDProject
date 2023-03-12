@@ -13,5 +13,6 @@ public interface GardeningDAO {
 	Plant createPlant(Plant createPlant);
 	Plant updatePlant(int id, Plant updatePlant);
 	boolean removePlant(int plantId);
+	List<Plant> findByKeywordSearch(String keyword);
 
 }

@@ -1,6 +1,6 @@
 package com.skilldistillery.gardening.data;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -21,6 +21,18 @@ public class GardeningDAOImpl implements GardeningDAO {
 	@Override
 	public Plant findById(int plantId) {
 		return em.find(Plant.class, plantId);
+	}
+	
+	@Override
+	public List<Plant> findByKeywordSearch(String keyword) {
+		List<Plant> kwSearch = new ArrayList<>();
+//		String kwMod = "%" + keyword + "%";
+		String query = "SELECT p FROM Plant p"
+				+ " WHERE p.name LIKE " + "%" + ":keyword" + "%" + " OR p.scientificName LIKE " + "%" + ":keyword" + "%" + " OR p.type LIKE :" + "%" + ":keyword" + "%" + " OR" 
+				+ " p.pests LIKE " + "%" + ":keyword" + "%" + " OR  p.notes LIKE :" + "%" + ":keyword" + "%";
+		kwSearch = em.createQuery(query, Plant.class).getResultList();
+		
+		return kwSearch;
 	}
 
 	@Override
