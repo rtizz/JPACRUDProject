@@ -56,13 +56,13 @@
 					<td rowspan=3>
 							<form action="updateplantform.do" method="GET">
 								<button name="update" type="submit" value="${p.id}" class="btn btn-primary">Update
-									Plant</button>
+									Crop</button>
 							</form>
 					</td>
 					<td rowspan=3>
 							<form action="remove.do" method="GET">
 								<button name="remove" type="submit" value="${p.id}" class="btn btn-warning">Remove
-									Plant</button>
+									Crop</button>
 							</form>
 					</td>
 					</tfoot>

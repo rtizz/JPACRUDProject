@@ -10,7 +10,7 @@
 </head>
 <jsp:include page="nav.jsp" />
 <body>
-<h1> NEW PLANT</h1>
+<h1> Add New Crop</h1>
 <form action="newplant.do" method="POST">
   Name <input type="text" name="name" /><br>
   Scientific Name: <input type="text" name="scientificName" /><br>
@@ -31,7 +31,7 @@
 <textarea id="description" name="notes" rows="4" cols="50"></textarea>
 <br> 
   URL: <input type="text" name="imageUrl" /><br>
-  <input type="submit" value="Add Plant" />
+  <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   <jsp:include page="bootstrapfooter.jsp" />
 </body>

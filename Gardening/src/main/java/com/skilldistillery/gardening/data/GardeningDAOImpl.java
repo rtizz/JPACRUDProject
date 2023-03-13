@@ -27,9 +27,7 @@ public class GardeningDAOImpl implements GardeningDAO {
 	public List<Plant> findByKeywordSearch(String keyword) {
 		List<Plant> kwSearch = new ArrayList<>();
 //		String kwMod = "%" + keyword + "%";
-		String query = "SELECT p FROM Plant p"
-				+ " WHERE p.name LIKE " + "%" + ":keyword" + "%" + " OR p.scientificName LIKE " + "%" + ":keyword" + "%" + " OR p.type LIKE :" + "%" + ":keyword" + "%" + " OR" 
-				+ " p.pests LIKE " + "%" + ":keyword" + "%" + " OR  p.notes LIKE :" + "%" + ":keyword" + "%";
+		String query = "SELECT p FROM Plant p WHERE p.name LIKE :keyword";
 		kwSearch = em.createQuery(query, Plant.class).getResultList();
 		
 		return kwSearch;

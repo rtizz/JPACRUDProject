@@ -11,7 +11,8 @@
 </head>
 <jsp:include page="nav.jsp" />
 <body>
-Plant Successfully Removed
+<h1 align="center"> Update Successful</h1>
+<h2 align="center">Crop Updated:</h2>
 <table>
 	<thead>
 		<tr>
@@ -40,6 +41,11 @@ Plant Successfully Removed
 	</tr>
 	</tbody>
 </table>
+
+		<form action="croplist.do" >
+			<button name="update" type="submit" style="height:45px;width:200px"
+				class="btn btn-primary">Return to List</button>
+		</form><br>
 <jsp:include page="bootstrapfooter.jsp" />
 </body>
 </html>
