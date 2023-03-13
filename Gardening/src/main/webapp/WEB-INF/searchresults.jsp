@@ -12,9 +12,25 @@
 <jsp:include page="nav.jsp" />
 <body>
 <h2>Search Results</h2>
-${keyword }
-<c:forEach var="k" items="${keyword}">
+<div class="tableFixHead">
+
 	<table>
+	<thead>
+	<tr id=custom>
+		<td>ID</td>
+		<td>Name</td>
+		<td>Scientific Name</td>
+		<td>Known Pests</td>
+		<td>Planted From Seed</td>
+		<td>Germination Period</td>
+		<td>Date Planted</td>
+		<td>Date Harvested</td>
+		<td>Yield</td>
+		<td>Notes</td>
+	</tr>
+				
+	</thead>
+<c:forEach var="k" items="${keyword}">
 	<tr>
 	<td>${k.id}</td>
 	<td>${k.name}</td>
@@ -26,10 +42,11 @@ ${keyword }
 	<td>${k.harvested}</td>
 	<td>${k.yield}</td>
 	<td>${k.notes}</td>
-	<td>${k.imageUrl}</td>
+
 	</tr>
-	</table>
 </c:forEach>
+	</table>
+	</div>
 <jsp:include page="bootstrapfooter.jsp" />
 </body>
 </html>

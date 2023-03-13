@@ -84,7 +84,8 @@ public class GardeningController {
 	}
 	@RequestMapping(path="search.do", params="search", method= RequestMethod.GET)
 	public String searchPlant(Model model, @RequestParam("search") String keyword) {
-		model.addAttribute("keyword", gdao.findByKeywordSearch(keyword));
+		String kwMod = "%" + keyword + "%";
+		model.addAttribute("keyword", gdao.findByKeywordSearch(kwMod));
 		return "searchresults";
 	}
 
