@@ -6,7 +6,7 @@
 <jsp:include page="bootstrapheader.jsp" />
 <meta charset="UTF-8">
 <title>Update Crop</title>
-<link rel="stylesheet" href="../format.css">
+<link rel="stylesheet" href="./format.css">
 </head>
 <jsp:include page="nav.jsp" />
 <body>

@@ -5,8 +5,8 @@
 <head>
 <jsp:include page="bootstrapheader.jsp" />
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../format.css">
+<title>Add New</title>
+<link rel="stylesheet" href="./format.css">
 </head>
 <jsp:include page="nav.jsp" />
 <body>

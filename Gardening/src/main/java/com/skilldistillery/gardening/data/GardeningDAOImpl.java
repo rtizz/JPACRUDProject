@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -25,11 +26,10 @@ public class GardeningDAOImpl implements GardeningDAO {
 	
 	@Override
 	public List<Plant> findByKeywordSearch(String keyword) {
-		List<Plant> kwSearch = new ArrayList<>();
-//		String kwMod = "%" + keyword + "%";
-//		String query = "SELECT p.name FROM Plant p WHERE p.name LIKE :keyword";
-		kwSearch = em.createQuery("SELECT p FROM Plant p WHERE p.name LIKE '" + keyword + "'" + "OR p.pests LIKE '" + keyword + "'" + "OR p.notes LIKE '" + keyword + "'", Plant.class).getResultList();		
-		return kwSearch;
+		String jpql = "SELECT p FROM Plant p WHERE p.name LIKE :keyword OR p.type LIKE :keyword OR p.pests LIKE :keyword OR p.notes LIKE :keyword";
+		TypedQuery<Plant> search = em.createQuery(jpql, Plant.class);	
+		search.setParameter("keyword", "%" + keyword + "%");
+		return search.getResultList();
 	}
 
 	@Override

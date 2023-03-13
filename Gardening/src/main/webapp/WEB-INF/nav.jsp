@@ -18,8 +18,8 @@
         </li>
       </ul>
       <form class="d-flex" role="search" action="search.do" method="GET">
-        <input class="form-control me-2" type="search" aria-label="Search">
-        <button class="btn btn-outline-success" name="search" type="submit">Search</button>
+        <input class="form-control me-2" type="text" name="search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>

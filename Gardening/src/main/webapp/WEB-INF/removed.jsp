@@ -7,7 +7,7 @@
 <jsp:include page="bootstrapheader.jsp" />
 <meta charset="UTF-8">
 <title>Film Removed</title>
-<link rel="stylesheet" href="../format.css">
+<link rel="stylesheet" href="./format.css">
 </head>
 <jsp:include page="nav.jsp" />
 <body>
