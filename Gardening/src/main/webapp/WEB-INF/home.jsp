@@ -11,6 +11,7 @@
 </head>
 <jsp:include page="nav.jsp" />
 <body>
+<div class="container-fluid">
 <h1 align="center">Garden Crop Database</h1>
 <p align="center">This site is designed to help track garden plant growth patterns to use for future crops.</p>
 <br>
@@ -28,6 +29,7 @@
 			<button name="update" type="submit" style="height:45px;width:200px"
 				class="btn btn-primary">Add Crop</button>
 		</form>
+		</div>
 		</div>
 <jsp:include page="bootstrapfooter.jsp" />
 </body>

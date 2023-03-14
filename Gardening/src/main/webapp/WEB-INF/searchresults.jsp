@@ -12,6 +12,7 @@
 <jsp:include page="nav.jsp" />
 <body>
 <h2>Search Results</h2>
+<div class="container-fluid">
 <div class="tableFixHead">
 
 	<table>
@@ -46,6 +47,7 @@
 	</tr>
 </c:forEach>
 	</table>
+	</div>
 	</div>
 <jsp:include page="bootstrapfooter.jsp" />
 </body>

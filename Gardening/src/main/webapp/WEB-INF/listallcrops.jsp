@@ -11,6 +11,7 @@
 </head>
 <jsp:include page="nav.jsp" />
 <body>
+<div class="container-fluid">
 	<h2>Active Crops Planted</h2>
 	<table>
 	
@@ -70,6 +71,7 @@
 			</c:forEach>
 		</c:otherwise>
 	</c:choose>
+	</div>
 	<jsp:include page="bootstrapfooter.jsp" />
 </body>
 </html>

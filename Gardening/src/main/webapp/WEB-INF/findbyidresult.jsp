@@ -11,6 +11,7 @@
 </head>
 <jsp:include page="nav.jsp" />
 <body>
+<div class="container-fluid">
 	<div class="table">
 		<h1>Search Results</h1>
 		<c:choose>
@@ -65,6 +66,7 @@
 				</table>
 			</c:otherwise>
 		</c:choose>
+		</div>
 		</div>
 		<jsp:include page="bootstrapfooter.jsp" />
 </body>

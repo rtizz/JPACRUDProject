@@ -10,6 +10,7 @@
 </head>
 <jsp:include page="nav.jsp" />
 <body>
+<div class="container-fluid">
 <h1 align="center"> Update Successful</h1>
 <h2 align="center">Crop Updated:</h2>
 	<table>
@@ -46,6 +47,7 @@
 			<button name="update" type="submit" style="height:45px;width:200px"
 				class="btn btn-primary">Return to List</button>
 		</form><br>
+		</div>
 <jsp:include page="bootstrapfooter.jsp" />
 </body>
 </html>
